@@ -1,5 +1,9 @@
-curl.exe localhost:5000/author/Unknown
-[{"author":"Unknown","title":"The Epic Of Gilgamesh","reviews":{}},{"author":"Unknown","title":"The Book Of Job","reviews":{}},{"author":"Unknown","title":"One Thousand and One Nights","reviews":{}},{"author":"Unknown","title":"Njál's Saga","reviews":{}}]
-
-curl.exe localhost:5000/author/Someone
-[]
+curl.exe http://localhost:5000/author/Jane%20Austen
+[
+    {
+        "isbn": "8",
+        "author": "Jane Austen",
+        "title": "Pride and Prejudice",
+        "reviews": {}
+    }
+]

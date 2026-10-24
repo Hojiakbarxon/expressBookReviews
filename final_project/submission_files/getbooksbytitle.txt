@@ -1,6 +1,9 @@
 curl.exe http://localhost:5000/title/The%20Epic%20Of%20Gilgamesh
-{"author":"Unknown","title":"The Epic Of Gilgamesh","reviews":{}}
-
-
-curl.exe http://localhost:5000/title/The%20Epic%20Of%20Gilgamesheddd
-{}
+[
+    {
+        "isbn": "4",
+        "author": "Unknown",
+        "title": "The Epic Of Gilgamesh",
+        "reviews": {}
+    }
+]

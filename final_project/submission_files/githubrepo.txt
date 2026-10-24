@@ -1,2 +1,3 @@
-(curl.exe -s https://api.github.com/repos/Hojiakbarxon/expressBookReviews | ConvertFrom-Json).parent.full_name
-ibm-developer-skills-network/expressBookReviews
+ASUS VIVOBOOK@DESKTOP-CE2HITE MINGW64 ~ (master)
+$ curl -s https://api.github.com/repos/Hojiakbarxon/expressBookReviews | jq '.parent.full_name'
+"ibm-developer-skills-network/expressBookReviews"
