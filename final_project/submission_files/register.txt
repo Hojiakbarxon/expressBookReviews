@@ -1,0 +1,2 @@
+curl.exe -X POST http://localhost:5000/register -H "Content-Type: application/json" -d "@submission_files/user.json"
+User has been registered successfully
