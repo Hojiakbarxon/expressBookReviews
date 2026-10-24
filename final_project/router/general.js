@@ -60,7 +60,7 @@ public_users.get('/async/isbn/:isbn', async function (req, res) {
     const response = await axios.get(`http://localhost:5000/isbn/${isbn}`)
     return res.status(200).send(JSON.stringify(response.data, null, 4))
   } catch (error) {
-    return res.status(404).json({ message: "Error has happend", error : error.message })
+    return res.status(404).json({ message: "Error has happend", error: error.message })
   }
 })
 
@@ -78,6 +78,16 @@ public_users.get('/author/:author', function (req, res) {
 
   return res.status(200).send(booksOfAuthor)
 });
+
+public_users.get('/async/author/:author', async function (req, res) {
+  let author = req.params.author;
+  try {
+    const response = await axios.get(`http://localhost:5000/author/${author}`)
+    return res.status(200).send(JSON.stringify(response.data, null, 4))
+  } catch (error) {
+    return res.status(404).json({ message: "Error has happend", error: error.message })
+  }
+})
 
 // Get all books based on title
 public_users.get('/title/:title', function (req, res) {
