@@ -54,6 +54,16 @@ public_users.get('/isbn/:isbn', function (req, res) {
   return res.status(200).send(JSON.stringify(book, null, 4));
 });
 
+public_users.get('/async/isbn/:isbn', async function (req, res) {
+  let isbn = req.params.isbn;
+  try {
+    const response = await axios.get(`http://localhost:5000/isbn/${isbn}`)
+    return res.status(200).send(JSON.stringify(response.data, null, 4))
+  } catch (error) {
+    return res.status(404).json({ message: "Error has happend", error : error.message })
+  }
+})
+
 // Get book details based on author
 public_users.get('/author/:author', function (req, res) {
   let author = req.params.author;
