@@ -104,6 +104,16 @@ public_users.get('/title/:title', function (req, res) {
   return res.status(200).send(JSON.stringify(searchedBook));
 });
 
+public_users.get('/async/title/:title', async function (req, res) {
+  let title = req.params.title;
+  try {
+    const response = await axios.get(`http://localhost:5000/title/${title}`)
+    return res.status(200).send(JSON.stringify(response.data, null, 4))
+  } catch (error) {
+    return res.status(404).json({ message: "Error has happend", error: error.message })
+  }
+})
+
 //  Get book review
 public_users.get('/review/:isbn', function (req, res) {
   let isbn = req.params.isbn;
