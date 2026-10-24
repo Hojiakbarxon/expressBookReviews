@@ -1,0 +1,9 @@
+curl.exe localhost:5000/isbn/4
+{
+    "author": "Unknown",
+    "title": "The Epic Of Gilgamesh",
+    "reviews": {}
+}
+
+curl.exe localhost:5000/isbn/40
+{"message":"Book not found for the given ISBN"}
