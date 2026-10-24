@@ -1,0 +1,5 @@
+curl.exe http://localhost:5000/review/8
+{"review1":"Great it is amazin","review2":"It is super"}
+
+curl.exe http://localhost:5000/review/1
+{}
