@@ -1,0 +1,17 @@
+curl.exe -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" -d "@submission_files/correct-user.json" -c submission_files/cookies.txt
+User has logged in successfully
+
+curl.exe -X PUT "http://localhost:5000/customer/auth/review/1?review=Great%20book" -b submission_files/cookies.txt
+{"message":"Review for ISBN 1 added successfully","reviews":{"John Doe":"Great book"}}
+
+curl.exe -X PUT "http://localhost:5000/customer/auth/review/1?review=Great%20book" -b submission_files/cookies.txt
+{"message":"Review for ISBN 1 updated successfully","reviews":{"John Doe":"Great book"}}
+
+curl.exe -X POST http://localhost:5000/register -H "Content-Type: application/json" -d "@submission_files/user.json"
+User has been registered successfully
+
+curl.exe -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" -d "@submission_files/user.json" -c submission_files/cookies2.txt
+User has logged in successfully
+
+curl.exe -X PUT "http://localhost:5000/customer/auth/review/1?review=Loved%20it" -b submission_files/cookies2.txt
+{"message":"Review for ISBN 1 added successfully","reviews":{"John Doe":"Great book","hoji":"Loved it"}}
