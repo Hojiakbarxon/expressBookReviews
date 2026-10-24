@@ -1,0 +1,5 @@
+curl.exe -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" -d "@submission_files/user.json" 
+Login failed. Check username and password.
+
+curl.exe -X POST http://localhost:5000/customer/login -H "Content-Type: application/json" -d "@submission_files/correct-user.json"
+User has logged in successfully
