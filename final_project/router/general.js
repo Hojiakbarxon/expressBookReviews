@@ -4,6 +4,9 @@ let isValid = require("./auth_users.js").isValid;
 let users = require("./auth_users.js").users;
 const public_users = express.Router();
 
+// I used this keys in multiple route heandlers so decided it to move it here.
+
+let bookKeys = Object.keys(books);
 
 public_users.post("/register", (req, res) => {
   //Write your code here
@@ -32,11 +35,11 @@ public_users.get('/isbn/:isbn', function (req, res) {
 // Get book details based on author
 public_users.get('/author/:author', function (req, res) {
   let author = req.params.author;
-  let bookKeys  = Object.keys(books);
+
 
   let booksOfAuthor = [];
-  for (let x of bookKeys){
-    if (books[x].author === author){
+  for (let x of bookKeys) {
+    if (books[x].author === author) {
       booksOfAuthor.push(books[x])
     };
   };
@@ -46,8 +49,17 @@ public_users.get('/author/:author', function (req, res) {
 
 // Get all books based on title
 public_users.get('/title/:title', function (req, res) {
-  //Write your code here
-  return res.status(300).json({ message: "Yet to be implemented" });
+  let title = req.params.title;
+  let searchedBook = {};
+
+  for (let x of bookKeys) {
+    if (books[x].title === title) {
+      searchedBook = books[x];
+      break;
+    }
+  };
+
+  return res.status(200).send(JSON.stringify(searchedBook));
 });
 
 //  Get book review
